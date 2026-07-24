@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mlecchita-x"
+version = "0.2.0"
+description = "Experimental Python cipher research library inspired by the secret-writing concept of Mlecchita Vikalpa."
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{name = "Mlecchita-X Contributors"}]
+keywords = ["cryptography", "experimental", "cipher", "mlecchita-vikalpa", "education", "research"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Developers",
+  "Intended Audience :: Education",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+  "Topic :: Security :: Cryptography"
+]
+
+[project.scripts]
+mlecchita-x = "mlecchita_x.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
