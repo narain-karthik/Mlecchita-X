@@ -1,10 +1,41 @@
 # Mlecchita-X
 
-Mlecchita-X is an **experimental Python cryptography research library** inspired by the historical concept of **Mlecchita Vikalpa**, commonly described as an art of secret writing or secret communication.
+**Experimental Python cryptography research library inspired by the historical concept of Mlecchita Vikalpa.**
 
-The historical idea is inspiration only. The byte-level cipher, HMAC-based derivation, nonce handling, dynamic S-box generation, permutation, diffusion, round-key mixing, and authenticated container are **modern experimental constructions** created for this project.
+Author & Maintainer: **Narain Karthik J**  
+Current version: **0.2.1**  
+Python: **3.10+**  
+License: **MIT**
 
-> **Security status:** Mlecchita-X is research/educational software. It has not undergone sufficient independent cryptanalysis and must not be used to protect real sensitive data.
+> **Important:** Mlecchita-X is educational/research software. It has not undergone sufficient independent cryptanalysis and must not be used to protect sensitive production data.
+
+## Quick start
+
+Install from PyPI:
+
+```cmd
+python -m pip install --upgrade mlecchita-x
+```
+
+Python:
+
+```python
+from mlecchita_x import generate_key, encrypt_text, decrypt_text
+
+key = generate_key()
+token = encrypt_text("Vanakkam", key)
+print(token)
+print(decrypt_text(token, key))
+```
+
+CLI:
+
+```cmd
+mlecchita-x keygen -o my.key
+mlecchita-x encrypt-text --key my.key "HELLO"
+```
+
+---
 
 ## Goals
 

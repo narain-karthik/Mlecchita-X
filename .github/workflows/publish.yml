@@ -9,52 +9,32 @@ permissions:
 
 jobs:
   test:
-    name: Test package
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repository
-        uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-
-      - name: Install package
-        run: |
-          python -m pip install --upgrade pip
-          python -m pip install .
-
-      - name: Run tests
-        run: python -m unittest discover -s tests -v
+      - run: python -m pip install --upgrade pip
+      - run: python -m pip install .
+      - run: python -m unittest discover -s tests -v
 
   build:
-    name: Build distribution
     needs: test
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repository
-        uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-
-      - name: Install build
-        run: python -m pip install --upgrade build
-
-      - name: Build wheel and source distribution
-        run: python -m build
-
-      - name: Upload distribution artifact
-        uses: actions/upload-artifact@v4
+      - run: python -m pip install --upgrade build
+      - run: python -m build
+      - uses: actions/upload-artifact@v4
         with:
           name: python-package-distributions
           path: dist/
 
   publish:
-    name: Publish to PyPI
     needs: build
     runs-on: ubuntu-latest
     environment:
@@ -62,13 +42,9 @@ jobs:
       url: https://pypi.org/project/mlecchita-x/
     permissions:
       id-token: write
-
     steps:
-      - name: Download distribution artifact
-        uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v4
         with:
           name: python-package-distributions
           path: dist/
-
-      - name: Publish package to PyPI
-        uses: pypa/gh-action-pypi-publish@release/v1
+      - uses: pypa/gh-action-pypi-publish@release/v1

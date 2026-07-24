@@ -4,12 +4,13 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "mlecchita-x"
-version = "0.2.0"
+version = "0.2.1"
 description = "Experimental Python cipher research library inspired by the secret-writing concept of Mlecchita Vikalpa."
 readme = "README.md"
 requires-python = ">=3.10"
 license = {text = "MIT"}
-authors = [{name = "Mlecchita-X Contributors"}]
+authors = [{name = "Narain Karthik J"}]
+maintainers = [{name = "Narain Karthik J"}]
 keywords = ["cryptography", "experimental", "cipher", "mlecchita-vikalpa", "education", "research"]
 classifiers = [
   "Development Status :: 3 - Alpha",
@@ -26,3 +27,10 @@ mlecchita-x = "mlecchita_x.cli:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[project.urls]
+Homepage = "https://github.com/narain-karthik/Mlecchita-X"
+Repository = "https://github.com/narain-karthik/Mlecchita-X"
+Issues = "https://github.com/narain-karthik/Mlecchita-X/issues"
+Changelog = "https://github.com/narain-karthik/Mlecchita-X/blob/main/CHANGELOG.md"
+Security = "https://github.com/narain-karthik/Mlecchita-X/blob/main/SECURITY.md"
